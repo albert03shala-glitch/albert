@@ -1,0 +1,14 @@
+{
+  "relevance_topic": "recent developments in AI: new models, research papers, product launches, notable tools, industry news, and sharp commentary about AI",
+  "min_relevant_items_for_draft": 6,
+  "min_distinct_subtopics_for_draft": 2,
+  "max_days_to_wait_before_lowering_bar": 5,
+  "lowered_bar_min_items": 3,
+  "draft_target_word_count": [400, 700],
+  "draft_output_dir": "newsletter/drafts",
+  "archive_dir": "newsletter/archive",
+  "pending_file": "newsletter/pending/items.jsonl",
+  "voice_file": "newsletter/voice.md",
+  "learnings_file": "newsletter/learnings.md",
+  "state_file": "newsletter/state.json"
+}
