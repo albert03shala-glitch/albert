@@ -1,16 +1,13 @@
 # Email draft agent
 
-Reads your inbox (albert03shala@hotmail.com) and writes reply **drafts**
-in your voice — never sends anything. You review and hit send yourself,
-exactly like the Threads newsletter pipeline works for newsletter issues.
+Reads your Gmail inbox and writes reply **drafts** in your voice —
+never sends anything. You review and hit send yourself, exactly like the
+Threads newsletter pipeline works for newsletter issues.
 
 ## One-time setup
 
-1. Go to claude.ai → Settings → Connectors and connect **Superhuman
-   Mail** (it supports personal Outlook/Hotmail accounts, unlike the
-   Microsoft 365 connector which targets work tenants and doesn't
-   expose a draft-creation tool), then make sure it's enabled for
-   whatever chat/session you run this from.
+1. Go to claude.ai → Settings → Connectors and connect **Gmail**, then
+   make sure it's enabled for whatever chat/session you run this from.
 2. Run `/email-draft-check` once manually to bootstrap `voice.md` from
    your Sent folder and create your first batch of drafts.
 

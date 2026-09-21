@@ -6,8 +6,8 @@ description: Turns the user's feedback on a drafted email reply into durable rul
 # Email feedback → self-learning
 
 Mirrors `newsletter-feedback`, applied to email drafts. The user is
-reacting to a specific draft reply (in Drafts, via the mail connector, or
-by describing it to you in chat).
+reacting to a specific draft reply (in Gmail Drafts, or by describing it
+to you in chat).
 
 ## 1. Identify the draft and read it in full
 
@@ -26,9 +26,8 @@ without bound.
 
 ## 3. Revise the draft
 
-Update the same draft in place (via the mail connector's
-create/update-draft tool) with the one-off edits plus every applicable
-rule from `learnings.md`/`voice.md`. Do not send it.
+Update the same Gmail draft in place with the one-off edits plus every
+applicable rule from `learnings.md`/`voice.md`. Do not send it.
 
 ## 4. Confirm
 

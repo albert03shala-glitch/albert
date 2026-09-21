@@ -17,16 +17,11 @@ create the draft and let the user hit send.
 
 ## 0. Tool check
 
-You need mail tools loaded (search inbox, read a thread, create/update a
-draft) for the user's account, albert03shala@hotmail.com — currently via
-the **Superhuman Mail** connector (chosen because it supports personal
-Outlook/Hotmail accounts and has a draft create/update tool; the
-Microsoft 365 connector was ruled out — it's aimed at work tenants and
-its Outlook tool is search-only). If no mail tools are available, tell
-the user directly that the connector needs to be connected via claude.ai
-→ Settings → Connectors and enabled for this chat — do not attempt to
-read email any other way (no scraping, no guessing at IMAP/SMTP
-credentials).
+You need Gmail tools loaded (search inbox, read a thread, create a
+draft). If they're not available, tell the user directly that the Gmail
+connector needs to be connected via claude.ai → Settings → Connectors,
+and enabled for this chat — do not attempt to read email any other way
+(no scraping, no guessing at IMAP/SMTP credentials).
 
 ## 1. Find messages that need a reply
 
@@ -49,8 +44,8 @@ written at the top of that file. Do this once; skip on later runs.
 Read `voice.md` then `learnings.md` (later file wins on conflict) for
 tone and rules. Read the full thread for context, not just the latest
 message. Write a reply that actually addresses what's being asked —
-not a generic acknowledgment — in the user's voice, then create/update
-it as a draft on that thread (reply-draft, not a new email). Add every
+not a generic acknowledgment — in the user's voice, then create it as a
+Gmail draft on that thread (reply-draft, not a new email). Add every
 message id you looked at (whether or not you drafted a reply) to
 `state.processed_message_ids`, and set `state.last_checked_at`.
 
