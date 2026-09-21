@@ -16,7 +16,7 @@ voice profile:
 
 ## Learned traits
 
-_(none yet — filled in on first run)_
+_(bootstrap attempted 2026-09-21 — inconclusive, see note below)_
 
 ## Things to avoid
 
@@ -25,3 +25,12 @@ _(none yet)_
 ## Standard sign-off
 
 _(fill in once observed — e.g. "Best, Albert" vs. "Thanks!" vs. nothing)_
+
+## Bootstrap note (2026-09-21)
+
+Sent folder only has 2 messages total (Oct 2024 and Feb 2025), and both
+are bare file-shares to friends with no written body text — nothing to
+infer tone from. Skipped fabricating traits rather than guessing. Retry
+this bootstrap once there are ~15-20 sent emails with actual prose in
+them, or seed this file by hand with a few example replies if you'd
+rather not wait.
