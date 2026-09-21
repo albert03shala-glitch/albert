@@ -16,12 +16,22 @@ values in `config.json` unless stated otherwise.
 ## 0. Browser tool check
 
 You need a real, authenticated browser session — the user is already
-logged into Threads in it. Use your native browser/computer-use tool
-(Playwright-backed or similar). **Do not** use a Chrome-extension/DevTools
-tool that attaches to the user's everyday browser window — this must be
-Claude Code's own browser. If no such browser tool is available in this
-environment, stop and tell the user directly: this skill can't run until
-one is configured (e.g. a Playwright MCP server), and do not attempt to
+logged into Threads in it. **Primary path:** use your native
+browser/computer-use tool (Playwright-backed or similar) — Claude Code's
+own browser, not one attached to the user's everyday Chrome window.
+
+**Fallback:** if the native browser tool isn't available, errors out, or
+can't get past Threads' login/rendering (e.g. it needs a session the
+native tool doesn't have), it's fine to fall back to the Chrome
+DevTools/extension tool for this run and say so in your summary to the
+user — this was explicitly approved as a fallback, not a silent
+substitution. Prefer retrying the native tool on the next scheduled run
+rather than treating the extension as the new default; if it keeps
+needing the fallback for several days in a row, flag that to the user
+instead of quietly settling on the extension long-term.
+
+If neither is available, stop and tell the user directly: this skill
+can't run until a browser tool is configured, and do not attempt to
 scrape Threads via HTTP fetch — it's an authenticated, JS-heavy app and
 that will not work and may look like credential probing.
 

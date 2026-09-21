@@ -7,11 +7,13 @@ newsletter in your voice — never sending anything automatically.
 ## How it works
 
 1. **`threads-newsletter-check`** (a Claude Code skill) runs once a day on
-   your own machine. It opens Threads in Claude Code's own browser tool
-   (not the Chrome extension — a separate, Claude-controlled browser, so
-   it reuses whatever session you're logged into there), reads your Saved
-   list, and keeps anything relevant to recent AI developments in
-   `pending/items.jsonl`.
+   your own machine. It opens Threads in Claude Code's own native browser
+   tool by default (a separate, Claude-controlled browser, so it reuses
+   whatever session you're logged into there), reads your Saved list, and
+   keeps anything relevant to recent AI developments in
+   `pending/items.jsonl`. If the native browser tool doesn't work, it's
+   allowed to fall back to the Chrome extension for that run — it'll say
+   so when it does.
 2. Once there's enough pending material — by default at least 6 relevant
    items spanning at least 2 distinct subtopics — it writes a draft to
    `drafts/YYYY-MM-DD.md` and stops. If there isn't enough yet, it does
