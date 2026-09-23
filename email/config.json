@@ -2,7 +2,7 @@
   "draft_only": true,
   "account": "albert03shala@hotmail.com",
   "connector": "Gmail",
-  "note_on_setup": "Hotmail mail is imported into the connected Gmail account via Gmail's free 'Check mail from other accounts' (POP) + 'Send mail as' features (Settings > Accounts and Import in Gmail) — no separate paid mail connector needed. Search should scope to imported Hotmail mail specifically, e.g. a query like 'deliveredto:albert03shala@hotmail.com' or whatever label Gmail applied to the imported account, not the user's native Gmail mail.",
+  "note_on_setup": "Hotmail mail is imported into the connected Gmail account via Gmail's free 'Check mail from other accounts' (POP) + 'Send mail as' features (Settings > Accounts and Import in Gmail) — no separate paid mail connector needed. Confirmed working query: 'to:albert03shala@hotmail.com' (NOT 'deliveredto:', which returns nothing for POP-imported mail, and NOT 'label:Label_1' by id — querying that label id also returned nothing even though list_labels shows it; use 'to:'/'from:' instead). POP only imports the inbox, not Sent — voice-profile bootstrap from Sent mail isn't possible for this account through this setup.",
   "scope": "Imported Hotmail mail only (see note_on_setup), unread messages. Skip automated no-reply senders and anything the user has already replied to.",
   "skip_if_no_reply_needed": true,
   "fallback_draft_dir": "email/drafts",

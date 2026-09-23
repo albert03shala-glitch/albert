@@ -26,11 +26,18 @@ _(none yet)_
 
 _(fill in once observed — e.g. "Best, Albert" vs. "Thanks!" vs. nothing)_
 
-## Bootstrap note (2026-09-21)
+## Bootstrap note (2026-09-21, Gmail account)
 
 Sent folder only has 2 messages total (Oct 2024 and Feb 2025), and both
 are bare file-shares to friends with no written body text — nothing to
-infer tone from. Skipped fabricating traits rather than guessing. Retry
-this bootstrap once there are ~15-20 sent emails with actual prose in
-them, or seed this file by hand with a few example replies if you'd
-rather not wait.
+infer tone from. Skipped fabricating traits rather than guessing.
+
+## Bootstrap note (2026-09-23, Hotmail account via Gmail POP import)
+
+Switched target account to albert03shala@hotmail.com, imported into
+Gmail via POP. POP only pulls the inbox, not Sent — there's no way to
+read this account's own sent mail through this setup at all, so the
+automatic bootstrap can't run here either. Two ways forward: paste a few
+example replies you've written and I'll seed this file by hand, or leave
+it empty and rely entirely on the feedback pass (slower to converge, but
+still works — every correction still gets logged and applied).
