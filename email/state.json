@@ -1,19 +1,6 @@
 {
-  "last_checked_at": "2026-09-21T17:10:00Z",
-  "processed_message_ids": [
-    "1a0c4e46dfaa39fb", "1a0c4e6173a9acec", "1a0c4d41d5d41bf5",
-    "1a0c4cbb21f70370", "1a0c4be5e0407369", "1a0c48635d8423fe",
-    "1a0c42ad14f347b5", "1a0c429bb890c7f1", "1a0c0c099c0912b7",
-    "1a0bf92c14f98974", "1a0befd341e19935", "1a0bf07fe798dcc1",
-    "1a0bb9aae251d673", "1a0ba30f3c41c2cf", "1a0b9dd84272bd57",
-    "1a0b9dead8d51606", "1a0b769d0738c8ea", "1a0b675442c6cb8c",
-    "1a0b4cec37fb9373", "1a0b4bd410be7107", "1a0b4bc5e6e09c3d",
-    "1a0b31bcdf45743c", "1a0b16c3b703f28f", "1a0b0368b5e4f62c",
-    "1a0b006236bb9ccd", "1a0af91626d2ffd3", "1a0af9230c631d3d",
-    "1a0af69dd21dfb84", "1a0ae821126903a9", "1a0ae81fd7303980",
-    "1a0ac2ac8297f9ae", "1a0aafff096a8e01", "1a0aa9ac225e3b04",
-    "1a0aa6e78a20f9f6", "1a0aa76f417cefc5"
-  ],
-  "last_inbox_page_token": "12345591701724151456",
-  "note": "201 unread threads total in category:primary; only the newest 30 were scanned this run. The rest are older and can be picked up on a later run by paging with last_inbox_page_token if desired."
+  "account": "albert03shala@hotmail.com",
+  "last_checked_at": null,
+  "processed_message_ids": [],
+  "note": "Reset when switching from the Gmail test run to the Hotmail/Microsoft 365 account on 2026-09-23 — message ids aren't comparable across accounts."
 }

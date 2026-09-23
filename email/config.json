@@ -1,7 +1,10 @@
 {
   "draft_only": true,
-  "scope": "Primary inbox, unread threads only. Skip Promotions/Social/Updates/Spam categories, automated no-reply senders, and anything the user has already replied to.",
+  "account": "albert03shala@hotmail.com",
+  "connector": "Microsoft 365",
+  "scope": "Inbox, unread messages only. Skip automated no-reply senders and anything the user has already replied to.",
   "skip_if_no_reply_needed": true,
+  "fallback_draft_dir": "email/drafts",
   "voice_file": "email/voice.md",
   "learnings_file": "email/learnings.md",
   "state_file": "email/state.json"
