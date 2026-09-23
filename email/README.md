@@ -1,28 +1,45 @@
 # Email draft agent
 
-Reads your inbox (albert03shala@hotmail.com, via the **Microsoft 365**
-connector) and writes reply **drafts** in your voice — never sends
-anything. You review and hit send yourself, exactly like the Threads
-newsletter pipeline works for newsletter issues.
+Reads your Hotmail mail (albert03shala@hotmail.com) — imported into the
+already-connected **Gmail** account for free, rather than paying for a
+dedicated Outlook connector — and writes reply **drafts** in your voice.
+Never sends anything; you review and hit send yourself, exactly like the
+Threads newsletter pipeline works for newsletter issues.
+
+Two paid/blocked options were tried and ruled out first: Microsoft 365
+rejects personal Hotmail/Outlook.com accounts (work/school only), and
+Superhuman Mail works but costs ~400kr — not worth it just for this.
 
 ## One-time setup
 
-1. Go to claude.ai → Settings → Connectors and connect **Microsoft
-   365**, signing in with albert03shala@hotmail.com, then make sure it's
-   enabled for whatever chat/session you run this from.
-2. Run `/email-draft-check` once manually to bootstrap `voice.md` from
+1. In Gmail (the account already connected as a Claude connector): go to
+   **Settings → Accounts and Import**.
+   - Under "Check mail from other accounts", add
+     albert03shala@hotmail.com so Gmail polls it via POP.
+   - Under "Send mail as", also add albert03shala@hotmail.com and verify
+     it, so you *can* send replies that look like they're from Hotmail —
+     see the caveat below on whether drafts can pick that automatically.
+2. Make sure the Gmail connector is enabled for whatever chat/session
+   you run this from.
+3. Run `/email-draft-check` once manually to bootstrap `voice.md` from
    your Sent folder and check for messages needing a reply.
 
-### Known limitation
+### Caveat: which address a draft sends from
 
-The Microsoft 365 connector's Outlook tools are search/read-only as far
-as we've seen (`outlook_email_search`, `outlook_calendar_search`, etc.)
-— no tool to create or update an Outlook draft. If that holds true once
-connected, `email-draft-check` falls back to writing suggested replies
-as local files under `drafts/` instead of real Outlook drafts, and tells
-you to copy them in yourself. If Microsoft later exposes a draft tool
-(or you connect a different mail connector), the skill will use it
-directly — check its report each run to see which mode it used.
+The Gmail draft-creation tool doesn't expose a way to pick a "Send mail
+as" alias — a draft it creates will default to your primary Gmail
+address unless Gmail's compose UI lets you switch the "From" field
+before sending. Check that dropdown before hitting send if you want the
+reply to go out as your Hotmail address, since the skill can't set that
+for you.
+
+### Fallback, just in case
+
+If drafting in Gmail doesn't work as expected for the imported mail,
+`email-draft-check` falls back to writing suggested replies as local
+files under `drafts/` instead of a real mailbox draft, and says so
+plainly in its report — check that report each run to see which mode it
+used.
 
 ## Ongoing use
 

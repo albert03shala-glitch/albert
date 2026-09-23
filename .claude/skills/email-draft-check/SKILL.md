@@ -8,9 +8,9 @@ description: Checks the user's inbox for messages needing a reply and writes dra
 You are running a pass of the user's personal email-drafting pipeline.
 Everything you need is under `email/`: `config.json`, `state.json`,
 `voice.md`, `learnings.md`. Read `config.json` first — it names the
-account and connector currently in use (as of writing:
-albert03shala@hotmail.com via the Microsoft 365 connector) — and
-`state.json`.
+account and connector currently configured (`account`, `connector`
+fields; this has changed more than once, so trust the file over
+anything you remember) — and `state.json`.
 
 **This skill only ever produces drafts for review. It must never send,
 archive, or delete anything, and it must never reply to anyone without
@@ -29,23 +29,30 @@ guessing at IMAP/SMTP credentials).
 
 Then check specifically for a tool that creates or updates a draft on
 the mail provider itself (e.g. something like `create_draft`,
-`update_draft`, `create_or_update_draft`). **As of the Microsoft 365
-connector's tool list at the time this skill was written, no such tool
-exists** — its Outlook tools are search/read-only. If you don't find one:
-- Use **fallback mode**: write suggested replies to markdown files under
-  `config.fallback_draft_dir` instead of a real draft (format in step 3).
-- Say so explicitly in your step-4 report — don't let the user assume
-  these are sitting in their actual Drafts folder when they aren't.
-If a draft-creation tool *is* available (Microsoft added one, or a
-different connector is now connected), use **draft mode**: create/update
-a real draft on the thread instead of a local file, and say so.
+`update_draft`, `create_or_update_draft`). Don't assume based on which
+connector was configured last time — check the actual tool list loaded
+right now, since the connector has changed more than once already.
+- Found one → **draft mode**: create/update a real draft on the thread.
+- Not found → **fallback mode**: write suggested replies to markdown
+  files under `config.fallback_draft_dir` instead (format in step 3),
+  and say so explicitly in your step-4 report — don't let the user
+  assume these are sitting in their actual Drafts folder when they
+  aren't.
 
 ## 1. Find messages that need a reply
 
-Per `config.scope`: look at the Primary inbox, unread threads only,
-skipping Promotions/Social/Updates/Spam categories. Within what's left,
-use judgment to skip messages that don't actually need a reply from the
-user even though they're unread — automated notifications, no-reply
+Read `config.scope` and `config.note_on_setup` carefully — as of the
+current setup, the target mail (albert03shala@hotmail.com) is imported
+into the connected Gmail account via POP, sitting alongside the user's
+native Gmail mail in the same inbox. **Scope your search to the
+imported Hotmail mail specifically** (e.g. `deliveredto:` the Hotmail
+address, or whatever label Gmail assigned the imported account — check
+`list_labels` if unsure) — do not process the user's native Gmail mail
+under this config unless `config.account`/`scope` says otherwise.
+
+Within the unread messages that match, skip Promotions/Social/Updates
+categories and use judgment to skip messages that don't actually need a
+reply even though they're unread — automated notifications, no-reply
 senders, receipts, newsletters, calendar invites that don't need a
 written response. Skip anything whose message id is already in
 `state.processed_message_ids`.
@@ -64,7 +71,10 @@ message. Write a reply that actually addresses what's being asked —
 not a generic acknowledgment — in the user's voice.
 
 - **Draft mode**: create/update it as a real draft on that thread
-  (reply-draft, not a new email).
+  (reply-draft, not a new email). Note the tool likely can't set a
+  "Send mail as" alias, so the draft may default to the user's primary
+  Gmail address rather than their Hotmail one — mention this in your
+  report so they know to check the From field before sending.
 - **Fallback mode**: save it as
   `<fallback_draft_dir>/YYYY-MM-DD-<short-subject-slug>.md` with
   frontmatter `{status: suggested-reply, thread_id, subject, from, to}`

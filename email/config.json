@@ -1,8 +1,9 @@
 {
   "draft_only": true,
   "account": "albert03shala@hotmail.com",
-  "connector": "Microsoft 365",
-  "scope": "Inbox, unread messages only. Skip automated no-reply senders and anything the user has already replied to.",
+  "connector": "Gmail",
+  "note_on_setup": "Hotmail mail is imported into the connected Gmail account via Gmail's free 'Check mail from other accounts' (POP) + 'Send mail as' features (Settings > Accounts and Import in Gmail) — no separate paid mail connector needed. Search should scope to imported Hotmail mail specifically, e.g. a query like 'deliveredto:albert03shala@hotmail.com' or whatever label Gmail applied to the imported account, not the user's native Gmail mail.",
+  "scope": "Imported Hotmail mail only (see note_on_setup), unread messages. Skip automated no-reply senders and anything the user has already replied to.",
   "skip_if_no_reply_needed": true,
   "fallback_draft_dir": "email/drafts",
   "voice_file": "email/voice.md",
