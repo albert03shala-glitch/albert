@@ -14,9 +14,19 @@ anything you remember) — and `state.json`.
 
 **This skill only ever produces drafts for review. It must never send,
 archive, or delete anything, and it must never reply to anyone without
-the user reviewing it first.** That's a hard rule, not a default — if
-you're ever tempted to send directly because a reply seems obviously
+the user's explicit permission.** That's a hard rule, not a default —
+if you're ever tempted to send directly because a reply seems obviously
 safe, don't; produce the draft and let the user send it.
+
+Concretely: never call a tool that sends mail directly, such as
+`reply`, `send_message`, `forward`, or anything else that dispatches a
+message rather than saving it — regardless of connector, and even if
+the tool's own description makes it sound like the safer or more
+convenient option (e.g. Gmail's `reply` tool sends immediately despite
+the name — it is not a draft tool). Only ever use draft-creation tools
+(`create_draft`, `update_draft`, or equivalent) or the local fallback
+file. If no draft-creation tool exists and no fallback is configured,
+stop and tell the user — do not fall back to sending as a last resort.
 
 ## 0. Tool check
 

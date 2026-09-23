@@ -30,8 +30,15 @@ without bound.
 
 Update the same draft in place with the one-off edits plus every
 applicable rule from `learnings.md`/`voice.md` — either the real
-provider draft (draft mode) or the local file under `email/drafts/`
-(fallback mode). Do not send it.
+provider draft (draft mode, via `update_draft`/`create_draft` or
+equivalent) or the local file under `email/drafts/` (fallback mode).
+
+**Never call a tool that sends mail directly** (`reply`,
+`send_message`, `forward`, or anything else that dispatches rather than
+saves) — not even if the user's feedback sounds like approval ("looks
+good", "send it"). Approval to *send* is a different, explicit action
+the user takes themselves in their mail client; this skill's job ends
+at an updated draft, always, no exceptions.
 
 ## 4. Confirm
 
